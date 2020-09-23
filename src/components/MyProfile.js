@@ -46,6 +46,7 @@ class MyProfile extends Component {
               id="exampleFormControlSelect1"
               onChange={(event) => this.handleInputChange("gender", event)}
             >
+              <option></option>
               <option>male</option>
               <option>female</option>
             </select>
@@ -67,7 +68,12 @@ class MyProfile extends Component {
               I have read the terms of conduct
             </label>
           </div>
-          <input type="submit" value="Submit" class="btn btn-primary"/>
+          <input 
+            type="submit" 
+            value="Submit" 
+            class="btn btn-primary"
+            disabled={!this.state.name || !this.state.gender || !this.state.description || this.state.checked === false}
+          />
         </form>
       </div> 
     );
