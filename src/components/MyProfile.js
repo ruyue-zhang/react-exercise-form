@@ -22,27 +22,37 @@ class MyProfile extends Component {
     });
   };
 
+  hadleForSubmit = (event) => {
+    event.preventDefault();
+    console.log(
+      "name:", this.state.name, 
+      "gender:", this.state.gender, 
+      "description:", this.state.description,
+      "checked:", this.state.checked
+    );
+  }
+
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <h2>My Profile</h2>
-        <form className="profile">
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Name</label>
+        <form className="profile" onSubmit={this.hadleForSubmit}>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlInput1">Name</label>
             <input 
               type="text" 
               value={this.state.name} 
-              class="form-control" 
+              className="form-control" 
               id="exampleFormControlInput1" 
               placeholder="Your name" 
               onChange={(event) => this.handleInputChange("name", event)}
             />
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Gender</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Gender</label>
             <select 
               value={this.state.gender} 
-              class="form-control" 
+              className="form-control" 
               id="exampleFormControlSelect1"
               onChange={(event) => this.handleInputChange("gender", event)}
             >
@@ -50,20 +60,20 @@ class MyProfile extends Component {
               <option>Female</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlTextarea1">Description</label>
             <textarea 
               value={this.state.description} 
-              class="form-control" 
+              className="form-control" 
               id="exampleFormControlTextarea1" 
               rows="3" 
               placeholder="Description about yourself"
               onChange={(event) => this.handleInputChange("description", event)}>
             </textarea>
           </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" onChange={this.handleCheckedChange}/>
-            <label class="form-check-label" for="exampleCheck1">
+          <div className="form-group form-check">
+            <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.handleCheckedChange}/>
+            <label className="form-check-label" htmlFor="exampleCheck1">
               I have read the terms of conduct
             </label>
           </div>
@@ -71,7 +81,7 @@ class MyProfile extends Component {
             id="submit"
             type="submit" 
             value="Submit" 
-            class="btn btn-primary"
+            className="btn btn-primary"
             disabled={!this.state.name || !this.state.gender || !this.state.description || this.state.checked === false}
           />
         </form>
