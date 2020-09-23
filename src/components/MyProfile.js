@@ -28,7 +28,7 @@ class MyProfile extends Component {
         <h2>My Profile</h2>
         <form className="profile">
           <div class="form-group">
-            <label for="exampleFormControlInput1">name</label>
+            <label for="exampleFormControlInput1">Name</label>
             <input 
               type="text" 
               value={this.state.name} 
@@ -46,9 +46,8 @@ class MyProfile extends Component {
               id="exampleFormControlSelect1"
               onChange={(event) => this.handleInputChange("gender", event)}
             >
-              <option></option>
-              <option>male</option>
-              <option>female</option>
+              <option>Male</option>
+              <option>Female</option>
             </select>
           </div>
           <div class="form-group">
@@ -69,6 +68,7 @@ class MyProfile extends Component {
             </label>
           </div>
           <input 
+            id="submit"
             type="submit" 
             value="Submit" 
             class="btn btn-primary"
